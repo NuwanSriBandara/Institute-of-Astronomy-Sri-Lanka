@@ -1,0 +1,195 @@
+
+
+%\documentclass[12pt]{article}
+\documentclass[11pt]{scrartcl}
+\title{EN2550_Assignment4}
+\nonstopmode
+%\usepackage[utf-8]{inputenc}
+\usepackage{graphicx} % Required for including pictures
+\usepackage[figurename=Figure]{caption}
+\usepackage{float}    % For tables and other floats
+\usepackage{verbatim} % For comments and other
+\usepackage{amsmath}  % For math
+\usepackage{amssymb}  % For more math
+\usepackage{fullpage} % Set margins and place page numbers at bottom center
+\usepackage{subcaption}
+\usepackage{paralist} % paragraph spacing
+\usepackage{listings} % For source code
+\usepackage{subfig}   % For subfigures
+%\usepackage{physics}  % for simplified dv, and 
+\usepackage{enumitem} % useful for itemization
+\usepackage{siunitx}  % standardization of si units
+\usepackage{hyperref}
+\usepackage{tikz,bm} % Useful for drawing plots
+%\usepackage{tikz-3dplot}
+\usepackage{circuitikz}
+\bibliographystyle{IEEEtran}
+\usepackage{cite}
+\usepackage{mhchem}
+
+%%% Colours used in field vectors and propagation direction
+\definecolor{mycolor}{rgb}{1,0.2,0.3}
+\definecolor{brightgreen}{rgb}{0.4, 1.0, 0.0}
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
+\definecolor{darkelectricblue}{rgb}{0.33, 0.41, 0.47}
+\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
+\definecolor{darktangerine}{rgb}{1.0, 0.66, 0.07}
+\definecolor{emerald}{rgb}{0.31, 0.78, 0.47}
+\definecolor{palatinatepurple}{rgb}{0.41, 0.16, 0.38}
+\definecolor{pastelviolet}{rgb}{0.8, 0.6, 0.79}
+\newcommand{\SubItem}[1]{
+    {\setlength\itemindent{15pt} \item[-] #1}
+}
+\begin{document}
+
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+	{\textbf { \large Stellar Evolution and Galaxies}}
+\end{center}
+{\textbf{Student Name:}\ Nuwan Bandara \hspace{\fill} \textbf{Submitted Date:} August 31, 2021   \\
+{ \textbf{Institute:}} \ Institute of Astronomy, Sri Lanka \hspace{\fill} \textbf{Assignment Number:} 1 \\
+	\hrule
+
+\bigskip
+
+\paragraph*{Problem 1} %\hfill \newline
+Derive the blackbody function in terms of wavelength.
+\newline
+\begin{equation}
+    B_v(T) = \frac{\frac{2hv^3}{c^2}}{e^{\frac{hv}{k_BT}}-1}
+\end{equation}
+\begin{equation}
+    B_v(T)dv = \frac{\frac{2hv^3}{c^2}dv}{e^{\frac{hv}{k_BT}}-1}
+\end{equation}
+Since $c=\lambda v$, then, $v=\frac{c}{\lambda}$,
+\begin{equation}
+    dv = -\frac{cd\lambda}{\lambda^2}
+\end{equation}
+Therefore, from (2) and (3),
+\begin{equation}
+    B_v(T)dv = -\frac{\frac{2hv^3}{c\lambda^2}d\lambda}{e^{\frac{hv}{k_BT}}-1}
+\end{equation}
+Substituting $v=\frac{c}{\lambda}$ into (4),
+\begin{equation}
+    B_v(T)dv = -\frac{\frac{2hc^2}{\lambda^5}d\lambda}{e^{\frac{hv}{k_BT}}-1}
+\end{equation}
+Since,
+\begin{equation}
+    |B_v(T)dv| = |B_\lambda(T)d\lambda|
+\end{equation}
+Therefore,
+\begin{equation}
+    B_\lambda(T)d\lambda = \frac{\frac{2hc^2}{\lambda^5}d\lambda}{e^{\frac{hv}{k_BT}}-1}
+\end{equation}
+Resulting,
+\begin{equation}
+    B_\lambda(T) = \frac{\frac{2hc^2}{\lambda^5}}{e^{\frac{hv}{k_BT}}-1}
+\end{equation}
+
+\paragraph*{Problem 2}
+A variable star changes its magnitude by 2 magnitudes. The surface effective temperature at its largest size is 6000K, and its lowest size is 5000 K. Calculate the change in radius?
+\newline
+Let the following:\newline
+$M_H$ = Absolute magnitude at the largest size,\newline
+$M_L$ = Absolute magnitude at the lowest size,\newline
+$L_H$ = Luminosity at the largest size,\newline
+$L_L$ = Luminosity at the lowest size,\newline
+$R_H$ = Radius at the largest size,\newline
+$R_L$ = Radius at the lowest size,\newline
+$T_H$ = 6000K and $T_L$ = 5000K \newline
+Absolute magnitudes are related to the corresponding luminocities via the following equation: 
+\begin{equation}
+    M_H - M_L = -2.5\log_{10}(\frac{L_H}{L_L})
+\end{equation}
+Therefore,
+\begin{equation}
+    \frac{L_H}{L_L} = 10^{0.4(M_L-M_H)}
+\end{equation}
+But $M_L-M_H=2$ (since the more luminous an object, the smaller the numerical value of its absolute magnitude),
+\begin{equation}
+    \frac{L_H}{L_L} = 10^{0.4(2)}=6.31
+\end{equation}
+From Stefan-Boltzmann law (assuming the variable star as a black body,
+\begin{equation}
+    \frac{L_H}{L_L} = \frac{R_H^2T_H^4}{R_L^2T_L^4}
+\end{equation}
+Therefore,
+\begin{equation}
+    \frac{R_H}{R_L} = \frac{T_L^2}{T_H^2}\frac{\sqrt{L_H}}{\sqrt{L_L}}
+\end{equation}
+From (11), (13) and temperature values,
+\begin{equation}
+    \frac{R_H}{R_L} = \frac{5000^2}{6000^2}\times\sqrt{6.31}=1.744
+\end{equation}
+\paragraph*{Problem 3}
+The “3-kpc arm” is a feature in our Galaxy that appears to be expanding away from the Galactic centre with a velocity of 50 km/s. Assume that this feature is a doughnut-shaped ring with a radius of 3 kpc and a total mass of
+6×10^7 \(M_\odot\). Find the kinetic energy of this feature. If this energy is coming from supernovae, where each provides an energy of $10^{44}$ J, how many supernovae would be needed to supply the kinetic energy?
+
+\newline Let the required kinetic energy be $E_k$, total mass $M$ and velocity $V$,
+\begin{equation}
+    E_k = \frac{1}{2}\times MV^2 =\frac{1}{2}\times 6 \times 10^7 \times 1.989 \times 10^{30} kg \times (5 \times 10^4 m/s)^2 = 1.492 \times 10^{47} J
+\end{equation}
+\begin{equation}
+    Number \hspace{1mm}of\hspace{1mm} needed\hspace{1mm} supernovae = \frac{1.492 \times 10^{47}}{10^{44}} \cong 1492
+\end{equation}
+
+\paragraph*{Problem 4}
+Helium burning proceeds in a 2-stage reaction (see slide 23 of Lecture 04). Calculate the total energy released by this reaction and the energy released per nucleon? How is the energy generated by He-burning compares with that
+produced by H-burning?
+
+\makebox[\textwidth]{}
+\makebox[\textwidth]{\ce{^{4}_{2}He} + \ce{^{4}_{2}He} \rightarrow \ce{^{8}_{4}Be} \hspace{1cm}($-0.0918 MeV$)}
+\makebox[\textwidth]{\ce{^{8}_{4}Be} + \ce{^{4}_{2}He} \rightarrow \ce{^{12}_{6}C + $2\gamma$} \hspace{1cm}($+7.367 MeV$)}
+
+Therefore, the total (net) energy released by the process E,
+
+\begin{equation}
+    E = -0.0918 + 7.367 = 7.2752 MeV
+\end{equation}
+Therefore the energy released per nucleon e will be,
+\begin{equation}
+    e = \frac{7.2752}{12} = 0.606 MeV
+\end{equation}
+\newpage
+Hydrogen (H) burning process differs from the Helium (He) burning process in terms of:
+\begin{itemize}[noitemsep,nolistsep]
+%\itemsep-1em
+    \item  generated process: H refers to p-p chains and CNO cycles while He refers to triple-alpha process
+    \item released energy per nucleon: H burning releases more energy per nucleon (over $\simeq 6MeV$) than He burning process ($\simeq 0.61MeV$)
+    \item resultant products at the end of the process: H burning fuses H into He while the triple-alpha process fuses He into C via a two-stage process
+    \item temperature dependence: H burning processes (especially p-p chain) have low temperature dependence when compared with the He burning process
+    \item dominance in energy generation: H burning processes (i.e. p-p chain) is dominant in energy generation in low mass stars
+    \item reaction rate: H burning processes are relatively faster than He burning process
+\end{itemize}
+
+\paragraph*{Problem 5}
+Write a short research note describing neutrinos.
+
+
+\begin{itemize}[noitemsep,nolistsep]
+%\itemsep-1em
+    \item  Why and how have solar neutrinos been observed?
+    \SubItem {The observation and detection of solar neutrinos was critical to validate the standard solar model and it was shown that the chlorine-argon reaction would be the most promising method to observe solar neutrinos from John Bahcall's experiments.}
+    \SubItem{Various experiments of detection have been implemented in order to observe the solar neutrinos such as\cite{web2}:
+    \begin{itemize}[noitemsep,nolistsep]
+    \item 1965 Kolar Gold and South Africa experiments: Located in India, in the Kolar Gold Field mine, 7500 m underground, the KGF detector was looking for muons produced by atmospheric neutrinos, resulting from cosmic rays interaction with Earth’s atmosphere. The experiment discovered the first atmospheric neutrinos about the same time as an other experiment done by F. Reines team in a mine in South Africa. The results suggested the existence of massive particles having a long life time and that interacted with the detector.
+    \item 1968-1994 Homestake Chlorine Experiment: Proposed by Raymond Davis, Jr. and John N. Bahcall in 1968, was trying to observe neutrinos emitted by nuclear reactions inside the Sun. It was located in Homestake Gold Mine, South Dakota, 1478 m underground. The detector was made of a 380 m3 tank of perchloroethylene. Upon interaction with an electron neutrino above 0.814 MeV, a chlorine-37 atom transforms into a radioactive isotope of argon-37, which can then be extracted and counted. Every few weeks, Davis bubbled helium through the tank to collect the argon that had formed. A few cm3 gas counter was filled by the collected few tens of atoms of argon-37 (together with the stable argon) to detect its decays and, thus, to determine how many neutrinos had been detected. 
+    \item 1982-1987 Kamiokande : The Kamioka Nucleon Decay Experiment was a detector located underground in the Kamioka mine, in Japan. It was a large cylindrical tank containing 3000 tons of pure water and about 1000 photomultipliers looking for Cerenkov light emitted by high velocity particles. Designed to search for proton decay, it was also used to detect neutrino interaction events.
+    \item There are so many other solar neutrino experiments such as 1984-1988 Fréjus, 1991-1997 GALLEX, 1996-2018 SuperKamiokande up-to 2011-2018 IceCube.
+    \end{itemize}}
+    \item What is their importance?
+    \SubItem {Neutrinos are critical in relation to the standard solar model since it is expected that the energy of the Sun was produced in its core by the fusion of hydrogen into helium in which the process is accompanied by the emission of neutrinos, which are the only witnesses of the phenomenon. Therefore, the direct detection of neutrinos is utmost important to validate the proposed model with respect to the energy generation of the Sun\cite{web3}.}
+    \item Have we observed neutrinos from objects/events other than the sun?
+    \SubItem {Neutrinos were observed in the experiments which utilized nuclear reactors (Ex. 2011-2015 Daya Bay and 2011 RENO) and particle accelerators (Ex. 2010-2018 MINERvA and 2016-2018 NOvA). }
+    \item Describe the solar neutrino problem. Has it been solved and if so how?
+    \SubItem{Solar neutrino problem refers to a large discrepancy between the flux of solar neutrinos as predicted from the Sun's luminosity and as measured directly. In the late 1960s, Ray Davis and John N. Bahcall's Homestake Experiment was the first to measure the flux of neutrinos from the Sun and detect a deficit. The experiment used a chlorine-based detector. Many subsequent radiochemical and water Cherenkov detectors confirmed the deficit, including the Kamioka Observatory and Sudbury Neutrino Observatory \cite{web4}.}
+    \SubItem{This problem was resolved with the theoretical (by Pontecorvo) and experimental proofs (from  Super-Kamiokande and Sudbury Neutrino Observatories) of neutrino oscillation which indicates that one lepton family member (electron neutrinos, muon neutrinos, and tau neutrinos) can later be measured to have a different lepton family member.  }
+\end{itemize}
+
+\bibliography{references}
+
+\end{document}
+
